@@ -7,5 +7,49 @@
 
 .video-container {
   width: 100%;
-  position: re;
+  height: 100vh;
+  position: relative;
+  
+
 }
+
+.back-video {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  background-size: cover;
+  
+}
+
+.text-container {
+  text-align: center;
+}
+
+.text-container h2, .text-container a {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 55px;
+  color: rgb(203, 234, 245);
+  margin-bottom: 30px;
+  -webkit-text-stroke: 2px white;
+}
+
+.text-container h2:hover {
+  -webkit-text-stroke: 2px rgb(241, 219, 92);
+}
+
+.text-container a {
+  font-size: 30px;
+  padding: 15px;
+  border: 2px solid rgb(200, 231, 241);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.text-container a:hover {
+  background-color: rgb(214, 156, 86);
+  color: rgb(44, 24, 24);
+  border: 2px solid rgb(44, 24, 24);
+}
+
+@keyframes moveInLeft
