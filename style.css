@@ -5,51 +5,116 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
 .video-container {
   width: 100%;
   height: 100vh;
   position: relative;
   
-
 }
+
 
 .back-video {
   position: absolute;
-  right: 0;
+  object-fit: cover;
   z-index: -1;
-  background-size: cover;
   
 }
 
 .text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the text */
+  z-index: 2;
   text-align: center;
+
 }
 
-.text-container h2, .text-container a {
+.text-container h2 {
   text-transform: uppercase;
   letter-spacing: 4px;
   font-size: 55px;
   color: rgb(203, 234, 245);
   margin-bottom: 30px;
   -webkit-text-stroke: 2px white;
+  text-stroke: 2px white;
+  text-shadow: 2px 2px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white;
+  
+
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  animation: moveInLeft 1s ease-out;
 }
 
 .text-container h2:hover {
   -webkit-text-stroke: 2px rgb(241, 219, 92);
+  text-stroke: 2px white;
+  text-shadow: 2px 2px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white;
 }
 
 .text-container a {
+  text-transform: uppercase;
+  letter-spacing: 4px;
   font-size: 30px;
   padding: 15px;
+  color: #fff;
   border: 2px solid rgb(200, 231, 241);
   text-decoration: none;
+  transition: 0.5s;
   cursor: pointer;
+  
+  animation: moveInRight 2.5s ease-out;
 }
 
 .text-container a:hover {
   background-color: rgb(214, 156, 86);
-  color: rgb(44, 24, 24);
+  color: rgb(31, 21, 21);
   border: 2px solid rgb(44, 24, 24);
 }
 
-@keyframes moveInLeft
+@keyframes moveInLeft {
+  0% {
+    opacity: 0; 
+    transform: translateX(-100px);  
+  }
+  
+  80% {
+    transform: translate(10px);
+  }
+
+  100% {
+    opacity: 1;                  
+    transform: translate(0);   
+  }
+}
+
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0; 
+    transform: translateX(100px);   
+  }
+
+  80% {
+    transform: translate(-10px);
+  }
+
+  100% {
+    opacity: 1;                  
+    transform: translate(0);   
+  }
+}
+@media (min-aspect-ratio: 16/9) {
+  .back-video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .back-video {
+    width: auto;
+    height: 100%;
+  }
+}
